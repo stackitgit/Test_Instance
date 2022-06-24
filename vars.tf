@@ -20,7 +20,7 @@ variable "ami" {
 }
 
 variable "instance_type"{
-  default ="t3.medium"
+  default ="t2.small"
 }
 
 variable "subnets" {
