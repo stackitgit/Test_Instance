@@ -19,12 +19,12 @@ data "aws_iam_instance_profile" "ssm-instance-prof" {
 
 #Set Bootstrap script
 data "template_file" "bootstrap" {
-    template = file(format("%s/scripts/bootstrap.tpl", path.module))
-    # vars={
+    template = file(format("%s/scripts/bootstrap.tpl", path.module))  
+}
+ # vars={
     #   Datadog_API_Key=local.ddog_key.datadog_api_key
       
     # }
-}
 
 #Create Security Group
 resource "aws_security_group" "datadog-sg" {
