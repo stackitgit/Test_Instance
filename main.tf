@@ -1,8 +1,8 @@
-locals {
-  ddog_key = jsondecode(
-    data.aws_secretsmanager_secret_version.ddapikey.secret_string
-  )
-}
+# locals {
+#   ddog_key = jsondecode(
+#     data.aws_secretsmanager_secret_version.ddapikey.secret_string
+#   )
+# }
 
 #DATA SOURCES
 
@@ -12,18 +12,18 @@ data "aws_iam_instance_profile" "ssm-instance-prof" {
 
 #Extract Secrets
 
-data "aws_secretsmanager_secret_version" "ddapikey" {
-  # Fill in the name you gave to your secret
-  secret_id = "datadog_api_key"
-}
+# data "aws_secretsmanager_secret_version" "ddapikey" {
+#   # Fill in the name you gave to your secret
+#   secret_id = "datadog_api_key"
+# }
 
 #Set Bootstrap script
 data "template_file" "bootstrap" {
     template = file(format("%s/scripts/bootstrap.tpl", path.module))
-    vars={
-      Datadog_API_Key=local.ddog_key.datadog_api_key
+    # vars={
+    #   Datadog_API_Key=local.ddog_key.datadog_api_key
       
-    }
+    # }
 }
 
 #Create Security Group
