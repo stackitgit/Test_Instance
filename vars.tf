@@ -11,7 +11,7 @@ variable "PATH_TO_PUBLIC_KEY" {
 }
 
 variable "vpc_id"{
-    default="vpc-03da4c32bdfe44451"
+    default="vpc-076bca924cc2b6ef3"
 }
 
 
@@ -26,8 +26,8 @@ variable "instance_type"{
 variable "subnets" {
   type = list(string)
   default=[
-    "subnet-0343c1b675f340001",
-    "subnet-0f630a9970b461e7a",
+    "subnet-0c1bf1ccd93da60d2",
+    "subnet-0efe1e752b98eaf2c",
    ]
 }
 
