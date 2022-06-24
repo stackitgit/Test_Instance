@@ -3,55 +3,55 @@ provider "aws" {
  default_tags {
    tags = {
 
-      environment = "sandbox"
+      environment = "dev"
 
-      #sandbox, dev, test, qa, uat, stage, prod, hotfix, train, mgmt
+      # #sandbox, dev, test, qa, uat, stage, prod, hotfix, train, mgmt
 
-      patchgroup = "a"
+      # patchgroup = "a"
 
-      #os patchgroup determines frequency a, b, c, opt-out
+      # #os patchgroup determines frequency a, b, c, opt-out
 
-      project-infrastructure = true
+      # project-infrastructure = true
 
-      project-ses = false
+      # project-ses = false
 
-      project-edp = false
+      # project-edp = false
 
-      project-nmls = false
+      # project-nmls = false
 
-      #project-infrastructure, project-ses, project-edp, project-nmls
+      # #project-infrastructure, project-ses, project-edp, project-nmls
 
-      application = "datadog"
+      # application = "datadog"
 
-      #AMI = "centos-7-golden-image"
+      # #AMI = "centos-7-golden-image"
 
-      #add or interpolate the ami from repo and replace above
+      # #add or interpolate the ami from repo and replace above
 
-      iac-terraform = true
+      # iac-terraform = true
 
-      #iac-terraform, iac-cloudformation, iac-none
+      # #iac-terraform, iac-cloudformation, iac-none
 
-      #commit = ""
+      # #commit = ""
 
-      #commit ID would need to be tagged manually to id statefile or maybe done before runner deploys
+      # #commit ID would need to be tagged manually to id statefile or maybe done before runner deploys
 
-      repo = "https://gitlab.srrcsbs.org/nmls/infrastructure/datadog_instance_creation/"
+      # repo = "https://gitlab.srrcsbs.org/nmls/infrastructure/datadog_instance_creation/"
 
-      #copy repo url and replace above
+      # #copy repo url and replace above
 
-      start-stop = "schedule-a"
+      # start-stop = "schedule-a"
 
-      #schedule-a (7x24), schedule-b (M-F 9-5), schedule-c (M-F 6-6)
+      # #schedule-a (7x24), schedule-b (M-F 9-5), schedule-c (M-F 6-6)
 
-      datadogagentenabled = true
+      # datadogagentenabled = true
 
    }
  }
 
-#  assume_role {
-#     role_arn    = "arn:aws:iam::407747792847:role/Terraform_Prog_Access"
+ assume_role {
+    role_arn    = "arn:aws:iam::560089993749:role/Engineer"
   
-#   }
+  }
 }
 
 
