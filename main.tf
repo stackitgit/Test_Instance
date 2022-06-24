@@ -29,7 +29,7 @@ data "template_file" "bootstrap" {
 
 #Create Security Group
 resource "aws_security_group" "datadog-sg" {
-  vpc_id     = var.vpc_id
+  # vpc_id     = var.vpc_id
   name        = "Datadog-WebDMZ"
   description = "Datadog Security Group For Datadog Instance"
 }
@@ -97,7 +97,7 @@ resource "aws_instance" "Test_Server" {
   instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.datadog-sg.id]
   # key_name                    = aws_key_pair.seskp.key_name
-  subnet_id                   = var.subnets[0]
+  # subnet_id                   = var.subnets[0]
   user_data                   = data.template_file.bootstrap.rendered 
   # iam_instance_profile        = data.aws_iam_instance_profile.ssm-instance-prof.name
   root_block_device {
