@@ -7,7 +7,8 @@
 #DATA SOURCES
 
 data "aws_iam_instance_profile" "ssm-instance-prof" {
-  name = "AmazonSSMRoleForInstancesQuickSetup"
+  # name = "AmazonSSMRoleForInstancesQuickSetup"
+  name = "AWSServiceRoleForAmazonSSM"
 }
 
 #Extract Secrets
