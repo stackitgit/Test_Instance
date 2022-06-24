@@ -93,7 +93,7 @@ resource "aws_security_group_rule" "oracle" {
 
 
 
-resource "aws_instance" "Test_Server" {
+resource "aws_instance" "DDog_Server" {
   ami                         = var.ami
   instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.datadog-sg.id]
