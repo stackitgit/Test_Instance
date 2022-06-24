@@ -4,6 +4,12 @@
 #   )
 # }
 
+resource "aws_key_pair" "Stack_KP" {
+  key_name   = "stackkp"
+  public_key = file(var.PATH_TO_PUBLIC_KEY)
+}
+
+
 #DATA SOURCES
 
 data "aws_iam_instance_profile" "ssm-instance-prof" {
@@ -98,6 +104,7 @@ resource "aws_instance" "DDog_Server" {
   vpc_security_group_ids      = [aws_security_group.datadog-sg.id]
   subnet_id                   = var.subnets[0]
   user_data                   = data.template_file.bootstrap.rendered 
+  key_name = aws_key_pair.Stack_KP.key_name
   iam_instance_profile        = data.aws_iam_instance_profile.ssm-instance-prof.name
   root_block_device {
     volume_type               = "gp2"
