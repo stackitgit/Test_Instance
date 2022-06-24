@@ -6,10 +6,9 @@
 
 #DATA SOURCES
 
-# data "aws_iam_instance_profile" "ssm-instance-prof" {
-#   # name = "AmazonSSMRoleForInstancesQuickSetup"
-#   name = "AWSServiceRoleForAmazonSSM"
-# }
+data "aws_iam_instance_profile" "ssm-instance-prof" {
+  name = "AmazonSSMRoleForInstancesQuickSetup" 
+}
 
 #Extract Secrets
 
@@ -99,7 +98,7 @@ resource "aws_instance" "DDog_Server" {
   vpc_security_group_ids      = [aws_security_group.datadog-sg.id]
   subnet_id                   = var.subnets[0]
   user_data                   = data.template_file.bootstrap.rendered 
-  # iam_instance_profile        = data.aws_iam_instance_profile.ssm-instance-prof.name
+  iam_instance_profile        = data.aws_iam_instance_profile.ssm-instance-prof.name
   root_block_device {
     volume_type               = "gp2"
     volume_size               = 30
