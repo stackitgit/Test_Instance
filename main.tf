@@ -21,11 +21,12 @@
 #Set Bootstrap script
 data "template_file" "bootstrap" {
     template = file(format("%s/scripts/bootstrap.tpl", path.module))  
-}
- # vars={
-    #   Datadog_API_Key=local.ddog_key.datadog_api_key
+    vars={
+      Datadog_API_Key=23234333434534534345556565
       
-    # }
+    }
+}
+ 
 
 #Create Security Group
 resource "aws_security_group" "datadog-sg" {
@@ -96,7 +97,6 @@ resource "aws_instance" "Test_Server" {
   ami                         = var.ami
   instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.datadog-sg.id]
-  # key_name                    = aws_key_pair.seskp.key_name
   subnet_id                   = var.subnets[0]
   user_data                   = data.template_file.bootstrap.rendered 
   # iam_instance_profile        = data.aws_iam_instance_profile.ssm-instance-prof.name
