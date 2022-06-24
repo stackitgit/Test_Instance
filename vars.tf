@@ -16,7 +16,7 @@ variable "vpc_id"{
 
 
 variable "ami" {
-  default = "ami-038bf3cdc5d733070"
+  default = "amzn2-ami-hvm-2.0.20210326.0-x86_64-gp2"
 }
 
 variable "instance_type"{
